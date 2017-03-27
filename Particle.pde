@@ -27,7 +27,9 @@ class Particle {
   void draw() {
     colorMode(HSB, 360, 100, 100, 100);
     stroke(colour, 100, 75, 50);
+    //fill(colour);
     line(oldPos.x, oldPos.y, pos.x, pos.y);
+    //point(pos.x, pos.y);
     colorMode(RGB, 255, 255, 255, 100);
   }
 }

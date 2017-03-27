@@ -24,8 +24,9 @@ class ParticleSystem {
       PVector pos = p.pos.copy();
       pos.mult(noiseScl);
       pos.z = t;
-      p.acc.add(curl2D(pos).mult(fieldWeight));
-      p.acc.mult(1-viscosity);
+      //p.acc.add(curl2D(pos).mult(fieldWeight));
+      //p.acc.mult(1-viscosity);
+      p.vel = curl2D(pos).mult(fieldWeight);
       p.update();
     }
     t += timeStep;
@@ -63,7 +64,7 @@ class ParticleSystem {
   }
 
   PVector curl2D(PVector v) {
-    float e = 0.005;
+    float e = 0.001;
     float n1, n2, x, y;
 
     n1 = noise(v.x, v.y + e, v.z);
